@@ -36,9 +36,9 @@ MVVM design is used to built this app with BlackBox Technique
 *  ViewModel BlackBox - ViewModel can only be accessed via input and output variable which means you can send input to viewModel and listen to its output from Viewcontroller assuring that your viewmodel's internal members are not touched.
 
  *  ViewController(UI Layer) 
-    ViewModel (MiddleLayer)
-    ViewModelDataManager(DataLayer) 
-    Networking(Networking layer) 
+ *   ViewModel (MiddleLayer)
+ *  ViewModelDataManager(DataLayer) 
+ *  Networking(Networking layer) 
     
  * The app shows minimal data because most of data are long urls or are null and not reliable. Hence, the most meaningful and important data is only displayed
 
