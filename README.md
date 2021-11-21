@@ -35,8 +35,9 @@ MVVM design is used to built this app with BlackBox Technique
 
 *  ViewModel BlackBox - ViewModel can only be accessed via input and output variable which means you can send input to viewModel and listen to its output from Viewcontroller assuring that your viewmodel's internal members are not touched.
 
+ Project layering is in following order
  *  ViewController(UI Layer) 
- *   ViewModel (MiddleLayer)
+ *  ViewModel (MiddleLayer)
  *  ViewModelDataManager(DataLayer) 
  *  Networking(Networking layer) 
     
