@@ -47,6 +47,7 @@ class GistListViewController: UIViewController, UITableViewDelegate {
     // MARK:- Binding TableView
     
     private func bindTableViewWithResult() {
+        // drive function will automatically switch to main thread on datasource update
         viewModel.output.datasource
             .drive(tableView.rx.items) { [weak self] (tv, row, item) -> UITableViewCell in
                 guard let self = self else { return UITableViewCell() }

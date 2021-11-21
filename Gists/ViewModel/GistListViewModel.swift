@@ -12,7 +12,7 @@ class GistListViewModel: ViewModelBridge {
     
     typealias T = Any
     private let disposeBag = DisposeBag()
-    private var dataManager: GistListViewModelDataManager
+    private var dataManager: ViewModelDataManager
     private let datasource: BehaviorRelay<[T]> = BehaviorRelay(value: [])
     private let errorMessage: PublishSubject<String> = PublishSubject()
     private let viewState = PublishSubject<AppState>()

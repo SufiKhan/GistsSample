@@ -12,7 +12,12 @@ enum Result<Value> {
     case failure(String)
 }
 
-class GistListViewModelDataManager {
+protocol ViewModelDataManager {
+    func getGistsFromServer(completionHandler: @escaping (Result<[Gist]>) -> Void)
+    func queryUserForDetail(gists: [Gist], completionHandler: @escaping (Result<Set<UserShares>>) -> Void)
+}
+
+class GistListViewModelDataManager: ViewModelDataManager {
     private var apiClient: Service
     private let disposeBag = DisposeBag()
 
@@ -46,17 +51,23 @@ class GistListViewModelDataManager {
     
     func queryUserForDetail(gists: [Gist], completionHandler: @escaping (Result<Set<UserShares>>) -> Void) {
         let group = DispatchGroup()
+        //Create background queue
+        let queue = DispatchQueue.global()
         var userDetailList = Set<UserShares>()
         gists.forEach { gist in
             group.enter()
-            apiClient.getUserGists(username: gist.owner.login).subscribe {  userGists in
-                group.leave()
-                if (userGists.count >= 5) {
-                    userDetailList.insert(UserShares(name: gist.owner.login, shares: userGists.count))
-                }
-            } onError: { error in
-                group.leave()
-            }.disposed(by: disposeBag)
+            // Make sure we fetch group on background thread to avoid blocking of UI
+            queue.async(group: group) { [weak self] in
+                guard let self = self else {return}
+                self.apiClient.getUserGists(username: gist.owner.login).subscribe {  userGists in
+                    group.leave()
+                    if (userGists.count >= 5) {
+                        userDetailList.insert(UserShares(name: gist.owner.login, shares: userGists.count))
+                    }
+                } onError: { error in
+                    group.leave()
+                }.disposed(by: self.disposeBag)
+            }
         }
         group.notify(queue: .global()) {
             completionHandler(.success(userDetailList))
