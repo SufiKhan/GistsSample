@@ -16,11 +16,12 @@ INTRODUCTION
 This App is build to demonstrate iOS Coding Skills with Reactive programming
 
 * Features
-This app displays a list of Gist provided by Github API. Once the list is displayed the app again queries each user in the list to fetch their gist shares details.
 
-Once the user detail is fetched and if this particular user has shares count more than or equal to 5 a new row is added below his initial row with his share count and name.
+* This app displays a list of Gist provided by Github API. Once the list is displayed the app again queries each user in the list to fetch their gist shares details.
 
-On the tap of am item  a detail page is loaded onto screen with detail of that item and you can mark that gist as favorite
+* Once the user detail is fetched and if this particular user has shares count more than or equal to 5 a new row is added below his initial row with his share count and name.
+
+* On the tap of am item  a detail page is loaded onto screen with detail of that item and you can mark that gist as favorite
 Note: The new row added to display username and share count cannot be selected.
 
 INSTALLATION
@@ -46,6 +47,4 @@ MVVM design is used to built this app with BlackBox Technique
  *  ViewModelDataManager(DataLayer) 
  *  Networking(Networking layer) 
     
- * The app shows minimal data because most of data are long urls or are null and not reliable. Hence, the most meaningful and important data is only displayed
-
 * Note: The api used to consume data in this app is free hence, it exceeds the limit after certain amount of queries to the server. So please wait and try it later to get it working.
