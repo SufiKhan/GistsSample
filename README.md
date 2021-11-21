@@ -6,8 +6,8 @@ CONTENTS OF THIS FILE
 
 ## Tools
 
-Xcode 12.4 
-Minimum OS support - iOS 13
+* Xcode 12.4 
+* Minimum OS support - iOS 13
 
 
 INTRODUCTION
