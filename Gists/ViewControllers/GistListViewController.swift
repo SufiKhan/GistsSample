@@ -3,7 +3,7 @@
 import UIKit
 import RxSwift
 import RxCocoa
-import RxDataSources
+
 class GistListViewController: UIViewController, UITableViewDelegate {
 
     private let disposeBag = DisposeBag()
@@ -41,7 +41,7 @@ class GistListViewController: UIViewController, UITableViewDelegate {
         bindLoader()
         subscribeToError()
         // Set app state to initial fetch to get gists list
-        viewModel.input.appState.onNext(.initialFetch)
+        viewModel.input.viewState.onNext(.initialFetch)
     }
     
     // MARK:- Binding TableView
@@ -108,7 +108,7 @@ extension GistListViewController {
     private func showAlertController(msg: String) {
         let alert = UIAlertController(title: "Error", message: msg, preferredStyle: UIAlertController.Style.alert)
         let retryAction = UIAlertAction (title: "Retry", style: UIAlertAction.Style.default) { action in
-            self.viewModel.input.appState.onNext(.initialFetch)
+            self.viewModel.input.viewState.onNext(.initialFetch)
         }
         let cancelAction = UIAlertAction (title: "Cancel", style: UIAlertAction.Style.default, handler: nil)
         alert.addAction(retryAction)

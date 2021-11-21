@@ -15,14 +15,14 @@ class GistListViewModel: ViewModelBridge {
     private var dataManager: GistListViewModelDataManager
     private let datasource: BehaviorRelay<[T]> = BehaviorRelay(value: [])
     private let errorMessage: PublishSubject<String> = PublishSubject()
-    private let appState = PublishSubject<AppState>()
+    private let viewState = PublishSubject<AppState>()
     private let isFetchingInProgress = PublishSubject<Bool>()
     var input: Input
     var output: Output
     
     init() {
         dataManager = GistListViewModelDataManager(apiClient: ApiClient())
-        input = Input(appState: appState.asObserver())
+        input = Input(viewState: viewState.asObserver())
         output = Output(
             datasource: datasource.asDriver(),
             errorMsg: errorMessage.asDriver(onErrorJustReturn: ""),
@@ -32,7 +32,7 @@ class GistListViewModel: ViewModelBridge {
     }
     
     private func bindViewModel() {
-        appState.subscribe { [weak self] type in
+        viewState.subscribe { [weak self] type in
             switch type.element {
             case .initialFetch: self?.getGistsFromGitHub()
             case .queryUserShares: self?.getGistsForUser()
@@ -49,16 +49,16 @@ class GistListViewModel: ViewModelBridge {
             case .success(let data):
                 if !data.isEmpty {
                     self?.datasource.accept(data)
-                    self?.appState.onNext(.fetchCompleted)
+                    self?.viewState.onNext(.fetchCompleted)
                     //once Gist list is fetched proceed to query users shares
-                    self?.appState.onNext(.queryUserShares)
+                    self?.viewState.onNext(.queryUserShares)
                 } else {
                     self?.errorMessage.onNext(Constants.notFound)
                 }
                 
             case .failure(let errorMsg):
                 self?.errorMessage.onNext(errorMsg)
-                self?.appState.onNext(.fetchCompleted)
+                self?.viewState.onNext(.fetchCompleted)
             }
         }
     }
@@ -70,11 +70,11 @@ class GistListViewModel: ViewModelBridge {
                 switch result {
                 case .success(let userShares):
                     self?.updateGistList(list: userShares)
-                    self?.appState.onNext(.fetchCompleted)
+                    self?.viewState.onNext(.fetchCompleted)
                 case .failure(_):
                     // We do not show any error if the user shares api because the initial list is already loaded
                     // so we fetch it again when user launches the app next time
-                    self?.appState.onNext(.fetchCompleted)
+                    self?.viewState.onNext(.fetchCompleted)
                 }
 //
             }
@@ -96,7 +96,7 @@ class GistListViewModel: ViewModelBridge {
 
 extension GistListViewModel {
     struct Input {
-        let appState: AnyObserver<AppState>
+        let viewState: AnyObserver<AppState>
     }
     
     struct Output {
