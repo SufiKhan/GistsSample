@@ -4,15 +4,16 @@ CONTENTS OF THIS FILE
  * Installation
  * Design
 
+## Tools
+
+Xcode 12.4 
+Minimum OS support - iOS 13
+
 
 INTRODUCTION
 ------------
 
 This App is build to demonstrate iOS Coding Skills with Reactive programming
-
-## Tools
-
-Xcode 12.4 and minimum OS support is iOS 13
 
 * Features
 This app displays a list of Gist provided by Github API. Once the list is displayed the app again queries each user in the list to fetch their gist shares details.
