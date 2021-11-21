@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="UserGistSharesTableViewCell" rowHeight="20" id="cDK-Dy-N6u" customClass="UserGistSharesTableViewCell" customModule="Gists" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="30"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="cDK-Dy-N6u" id="jiu-Qa-ZxR">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="30"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Shares: 30" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bRn-4F-qjg">
+                        <rect key="frame" x="215" y="4.5" width="100" height="20.5"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="100" id="K3b-1A-bsW"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qkp-rp-Xal">
+                        <rect key="frame" x="5" y="4" width="205" height="21"/>
+                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="bRn-4F-qjg" firstAttribute="leading" secondItem="qkp-rp-Xal" secondAttribute="trailing" constant="5" id="NUA-3e-Ro9"/>
+                    <constraint firstAttribute="bottom" secondItem="bRn-4F-qjg" secondAttribute="bottom" constant="5" id="OqM-eu-uC3"/>
+                    <constraint firstAttribute="bottom" secondItem="qkp-rp-Xal" secondAttribute="bottom" constant="5" id="e5O-4W-ybB"/>
+                    <constraint firstItem="qkp-rp-Xal" firstAttribute="leading" secondItem="jiu-Qa-ZxR" secondAttribute="leading" constant="5" id="lQP-PT-L3q"/>
+                    <constraint firstAttribute="trailing" secondItem="bRn-4F-qjg" secondAttribute="trailing" constant="5" id="nsq-FX-dLu"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="2AI-fh-rxR"/>
+            <connections>
+                <outlet property="shares" destination="bRn-4F-qjg" id="UwT-Rg-Kg2"/>
+                <outlet property="username" destination="qkp-rp-Xal" id="xn2-4l-Nwg"/>
+            </connections>
+            <point key="canvasLocation" x="141" y="138"/>
+        </tableViewCell>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+    </objects>
+</document>
