@@ -43,8 +43,8 @@ MVVM design is used to built this app with BlackBox Technique
 
  Project layering is in following order
  *  ViewController(UI Layer) 
- *  ViewModel (MiddleLayer)
- *  ViewModelDataManager(DataLayer) 
+ *  ViewModel (Presenter)
+ *  ViewModelDataManager(Data controller Layer) 
  *  Networking(Networking layer) 
     
 * Note: The api used to consume data in this app is free hence, it exceeds the limit after certain amount of queries to the server. So please wait and try it later to get it working.
