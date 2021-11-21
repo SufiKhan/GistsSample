@@ -8,6 +8,7 @@
 import Foundation
 
 class UserSharesRequest: APIRequest {
+    
     private var username: String
     
     init(username: String) {
@@ -15,7 +16,7 @@ class UserSharesRequest: APIRequest {
     }
     
     override var path: String {
-        return "users/\(username)/gists"
+        return "/users/\(username)/gists?since"
     }
     
     override var method: RequestHTTPMethod {

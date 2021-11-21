@@ -10,7 +10,7 @@ import Foundation
 class GistRequest: APIRequest {
     
     override var path: String {
-        return "gists/public"
+        return "/gists/public?since"
     }
     
     override var method: RequestHTTPMethod {

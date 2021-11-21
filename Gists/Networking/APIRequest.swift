@@ -14,6 +14,7 @@ enum RequestHTTPMethod: String {
 }
 
 class APIRequest: URLRequestConvertible {
+   
     var baseURL = "https://api.github.com"
 
     // MARK: - Properties
@@ -34,16 +35,14 @@ class APIRequest: URLRequestConvertible {
     }
     
     func asURLRequest() throws -> URLRequest {
-        let url = try baseURL.asURL()
-        
-        var urlRequest = URLRequest(url: url.appendingPathComponent(path))
-        
-        //Http method
+        let urlString = baseURL + path
+        let url = try urlString.asURL()
+        var urlRequest = URLRequest(url: url)
         urlRequest.httpMethod = method.rawValue
-        
         // Common Headers
         urlRequest.setValue(Constants.ContentType.json.rawValue, forHTTPHeaderField: Constants.HttpHeaderField.acceptType.rawValue)
         urlRequest.setValue(Constants.ContentType.json.rawValue, forHTTPHeaderField: Constants.HttpHeaderField.contentType.rawValue)
-        return try URLEncoding.queryString.encode(urlRequest, with: parameters)
+        let encoding: ParameterEncoding = URLEncoding.default
+        return try encoding.encode(urlRequest, with: parameters)
     }
 }

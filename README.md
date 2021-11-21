@@ -4,11 +4,7 @@ CONTENTS OF THIS FILE
  * Installation
  * Design
 
-## Tools
-
-* Xcode 12.4 
-* Minimum OS support - iOS 13
-
+## Minimum OS support - iOS 13
 
 INTRODUCTION
 ------------
@@ -43,8 +39,8 @@ MVVM design is used to built this app with BlackBox Technique
 
  Project layering is in following order
  *  ViewController(UI Layer) 
- *  ViewModel (Presenter)
+ *  ViewModel (Presentation layer)
  *  ViewModelDataManager(Data controller Layer) 
- *  Networking(Networking layer) 
+ *  ApiClient (Networking layer) 
     
 * Note: The api used to consume data in this app is free hence, it exceeds the limit after certain amount of queries to the server. So please wait and try it later to get it working.
