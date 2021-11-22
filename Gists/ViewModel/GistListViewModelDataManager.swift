@@ -52,12 +52,12 @@ class GistListViewModelDataManager: ViewModelDataManager {
     func queryUserForDetail(gists: [Gist], completionHandler: @escaping (Result<Set<UserShares>>) -> Void) {
         let group = DispatchGroup()
         //Create background queue
-        let queue = DispatchQueue.global()
+        let queue = DispatchQueue.global(qos: .background)
         var userDetailList = Set<UserShares>()
         gists.forEach { gist in
             group.enter()
             // Make sure we fetch group on background thread to avoid blocking of UI
-            queue.async(group: group) { [weak self] in
+            queue.async(group: group, execute: { [weak self] in
                 guard let self = self else {return}
                 self.apiClient.getUserGists(username: gist.owner.login).subscribe {  userGists in
                     group.leave()
@@ -67,7 +67,7 @@ class GistListViewModelDataManager: ViewModelDataManager {
                 } onError: { error in
                     group.leave()
                 }.disposed(by: self.disposeBag)
-            }
+            }) 
         }
         group.notify(queue: .global()) {
             completionHandler(.success(userDetailList))
