@@ -26,8 +26,8 @@ This app is built using RxSwift and Alamofire which are 3rd party library.
 To install these dependencies a dependency manager is used i.e. CocoaPods. 
 The dependecies are listed in podfile.
 
-To successfully built the project Run Pod Install from root directory of project on your commandline 
-Once the pods are installed open .xcworkspace file and you are ready to go now!!!
+To successfully built the project Run ```Pod Install``` from root directory of project on your commandline 
+Once the pods are installed ```open .xcworkspace``` file and you are ready to go now!!!
 
 
 Design
@@ -35,12 +35,12 @@ Design
 
 MVVM design is used to built this app with BlackBox Technique
 
-*  ViewModel BlackBox - ViewModel can only be accessed via input and output variable which means you can send input to viewModel and listen to its output from Viewcontroller assuring that your viewmodel's internal members are not touched.
+*  ```ViewModel BlackBox``` - ViewModel can only be accessed via input and output variable which means you can send input to viewModel and listen to its output from Viewcontroller assuring that your viewmodel's internal members are not touched.
 
  Project layering is in following order
- *  ViewController(UI Layer) 
- *  ViewModel (Presentation layer)
- *  ViewModelDataManager(Data controller Layer) 
- *  ApiClient (Networking layer) 
+ *  ```ViewController(UI Layer)```
+ *  ```ViewModel (Presentation layer)```
+ *  ```ViewModelDataManager(Data controller Layer)``` 
+ *  ```ApiClient (Networking layer)``` 
     
 * Note: The api used to consume data in this app is free hence, it exceeds the limit after certain amount of queries to the server. So please wait and try it later to get it working.
