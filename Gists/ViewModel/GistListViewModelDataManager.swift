@@ -26,7 +26,7 @@ class GistListViewModelDataManager: ViewModelDataManager {
     }
     
     func getGistsFromServer(completionHandler: @escaping (Result<[Gist]>) -> Void) {
-        apiClient.getGists().observe(on: MainScheduler.instance)
+        apiClient.getGists()
         .subscribe(
             onNext: { gistsList in
                 completionHandler(.success(gistsList))
@@ -67,7 +67,7 @@ class GistListViewModelDataManager: ViewModelDataManager {
                 } onError: { error in
                     group.leave()
                 }.disposed(by: self.disposeBag)
-            }) 
+            })
         }
         group.notify(queue: .global()) {
             completionHandler(.success(userDetailList))
