@@ -27,7 +27,7 @@ class GistTableViewCell: UITableViewCell {
         didSet {
             gistDescription.text = model.description
             gistFiles.text =  "\(model.files.files.count) files"
-            id.text =  "ID: \(model.id)"
+            id.text =  "  URL: \(model.url)"
             userImageView.loadImageUsingCache(withUrl: model.owner.avatar_url)
 
         }

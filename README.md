@@ -15,9 +15,9 @@ This App is build to demonstrate iOS Coding Skills with Reactive programming
 
 * This app displays a list of Gist provided by Github API. Once the list is displayed the app again queries each user in the list to fetch their gist shares details.
 
-* Once the user detail is fetched and if this particular user has shares count more than or equal to 5 a new row is added below his initial row with his share count and name.
+* Once the user detail is fetched and if this particular user has shares count more than or equal to 5 a new row is added below his main row with his share count and name.
 
-* On the tap of am item  a detail page is loaded onto screen with detail of that item and you can mark that gist as favorite
+* On the tap of an item a detail page is loaded onto screen with detail of that item and you can mark that gist as favorite
 Note: The new row added to display username and share count cannot be selected.
 
 INSTALLATION

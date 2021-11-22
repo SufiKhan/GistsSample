@@ -82,6 +82,7 @@ class GistListViewModel: ViewModelBridge {
     }
         
     private func updateGistList(list: Set<UserShares> ) {
+        if list.isEmpty {return}
         var tempDatasource = datasource.value
         _ = list.map {
             let element = $0
