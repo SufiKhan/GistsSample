@@ -42,5 +42,6 @@ MVVM design is used to built this app with BlackBox Technique
  *  ```ViewModel (Presentation layer)```
  *  ```ViewModelDataManager(Data controller Layer)``` 
  *  ```ApiClient (Networking layer)``` 
-    
+
+* Important: The initial list sometimes return duplicate data. Hence, to avoid repetition for share count the app only displays once for each user. 
 * Note: The api used to consume data in this app is free hence, it exceeds the limit after certain amount of queries to the server. So please wait and try it later to get it working.
