@@ -1,22 +1,30 @@
 PODS:
   - Alamofire (5.0.0.beta.1)
+  - RxBlocking (6.2.0):
+    - RxSwift (= 6.2.0)
   - RxCocoa (6.2.0):
     - RxRelay (= 6.2.0)
     - RxSwift (= 6.2.0)
   - RxRelay (6.2.0):
     - RxSwift (= 6.2.0)
   - RxSwift (6.2.0)
+  - RxTest (6.2.0):
+    - RxSwift (= 6.2.0)
 
 DEPENDENCIES:
   - Alamofire (from `https://github.com/Alamofire/Alamofire.git`, branch `alamofire5`)
+  - RxBlocking
   - RxCocoa
   - RxSwift
+  - RxTest
 
 SPEC REPOS:
   trunk:
+    - RxBlocking
     - RxCocoa
     - RxRelay
     - RxSwift
+    - RxTest
 
 EXTERNAL SOURCES:
   Alamofire:
@@ -30,10 +38,12 @@ CHECKOUT OPTIONS:
 
 SPEC CHECKSUMS:
   Alamofire: 2ef6d6c984c5d21c366e9b41a9ae7dfee2b67a44
+  RxBlocking: 0b29f7d2079109a8de49c411381bed7c33ef1eeb
   RxCocoa: 4baf94bb35f2c0ab31bc0cb9f1900155f646ba42
   RxRelay: e72dbfd157807478401ef1982e1c61c945c94b2f
   RxSwift: d356ab7bee873611322f134c5f9ef379fa183d8f
+  RxTest: 0c692fa672b694373ba86d2b00033595297a2831
 
-PODFILE CHECKSUM: 2c1d73a3cba3193e2887551a100f6366cbe65ddd
+PODFILE CHECKSUM: eb97eee3de73c8166563c084b39387a2d56723d4
 
 COCOAPODS: 1.8.4

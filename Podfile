@@ -11,3 +11,10 @@ target 'Gists' do
   pod 'RxCocoa'
 
 end
+
+target 'GistsTests' do
+    pod 'RxTest'
+    pod 'RxSwift'
+    pod 'RxCocoa'
+
+end

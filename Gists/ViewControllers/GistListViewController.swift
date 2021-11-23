@@ -14,8 +14,7 @@ class GistListViewController: UIViewController, UITableViewDelegate {
         indicator.hidesWhenStopped = true
         return indicator
     }()
-    private let viewModel = GistListViewModel()
-//    private var apiType = BehaviorRelay(value: ApiType.gists)
+    private let viewModel = GistListViewModel(with: GistListViewModelDataManager(apiClient: ApiClient()))
     // MARK:- View Life Cycle
 
     override func viewDidLoad() {
@@ -48,7 +47,7 @@ class GistListViewController: UIViewController, UITableViewDelegate {
     
     private func bindTableViewWithResult() {
         // drive function will automatically switch to main thread on datasource update
-        viewModel.output.datasource
+        viewModel.output.datasource.asDriver()
             .drive(tableView.rx.items) { [weak self] (tv, row, item) -> UITableViewCell in
                 guard let self = self else { return UITableViewCell() }
                 if item is Gist {

@@ -21,7 +21,7 @@ class GistListViewModelDataManager: ViewModelDataManager {
     private var apiClient: Service
     private let disposeBag = DisposeBag()
 
-    init(apiClient: ApiClient) {
+    init(apiClient: Service) {
         self.apiClient = apiClient
     }
     

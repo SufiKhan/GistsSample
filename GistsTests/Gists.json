@@ -1,0 +1,48 @@
+
+[{
+    "url": "https://api.github.com/gists/2cebe0e5f6de5f7fa0dcff2ec6c63b6c",
+    "forks_url": "https://api.github.com/gists/2cebe0e5f6de5f7fa0dcff2ec6c63b6c/forks",
+    "commits_url": "https://api.github.com/gists/2cebe0e5f6de5f7fa0dcff2ec6c63b6c/commits",
+    "id": "2cebe0e5f6de5f7fa0dcff2ec6c63b6c",
+    "node_id": "G_kwDOAD5f8doAIDJjZWJlMGU1ZjZkZTVmN2ZhMGRjZmYyZWM2YzYzYjZj",
+    "git_pull_url": "https://gist.github.com/2cebe0e5f6de5f7fa0dcff2ec6c63b6c.git",
+    "git_push_url": "https://gist.github.com/2cebe0e5f6de5f7fa0dcff2ec6c63b6c.git",
+    "html_url": "https://gist.github.com/2cebe0e5f6de5f7fa0dcff2ec6c63b6c",
+    "files": {
+      "build.sh": {
+        "filename": "build.sh",
+        "type": "application/x-sh",
+        "language": "Shell",
+        "raw_url": "https://gist.githubusercontent.com/copaste/2cebe0e5f6de5f7fa0dcff2ec6c63b6c/raw/55c8a4a77048e072d23fe496571214d2db18c9c6/build.sh",
+        "size": 3816
+      }
+    },
+    "public": true,
+    "created_at": "2021-11-23T09:31:23Z",
+    "updated_at": "2021-11-23T09:31:37Z",
+    "description": "Add dynamically locales to angular.json",
+    "comments": 0,
+    "user": null,
+    "comments_url": "https://api.github.com/gists/2cebe0e5f6de5f7fa0dcff2ec6c63b6c/comments",
+    "owner": {
+      "login": "copaste",
+      "id": 4087793,
+      "node_id": "MDQ6VXNlcjQwODc3OTM=",
+      "avatar_url": "https://avatars.githubusercontent.com/u/4087793?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/copaste",
+      "html_url": "https://github.com/copaste",
+      "followers_url": "https://api.github.com/users/copaste/followers",
+      "following_url": "https://api.github.com/users/copaste/following{/other_user}",
+      "gists_url": "https://api.github.com/users/copaste/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/copaste/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/copaste/subscriptions",
+      "organizations_url": "https://api.github.com/users/copaste/orgs",
+      "repos_url": "https://api.github.com/users/copaste/repos",
+      "events_url": "https://api.github.com/users/copaste/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/copaste/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "truncated": false
+  }]

@@ -20,11 +20,11 @@ class GistListViewModel: ViewModelBridge {
     var input: Input
     var output: Output
     
-    init() {
-        dataManager = GistListViewModelDataManager(apiClient: ApiClient())
+    init(with dataManager: ViewModelDataManager) {
+        self.dataManager = dataManager
         input = Input(viewState: viewState.asObserver())
         output = Output(
-            datasource: datasource.asDriver(),
+            datasource: datasource,
             errorMsg: errorMessage.asDriver(onErrorJustReturn: ""),
             isFetching: isFetchingInProgress.asDriver(onErrorJustReturn: false)
         )
@@ -49,11 +49,11 @@ class GistListViewModel: ViewModelBridge {
             case .success(let data):
                 if !data.isEmpty {
                     self?.datasource.accept(data)
-                    self?.viewState.onNext(.fetchCompleted)
                     //once Gist list is fetched proceed to query users shares
                     self?.viewState.onNext(.queryUserShares)
                 } else {
                     self?.errorMessage.onNext(Constants.notFound)
+                    self?.viewState.onNext(.fetchCompleted)
                 }
                 
             case .failure(let errorMsg):
@@ -101,7 +101,7 @@ extension GistListViewModel {
     }
     
     struct Output {
-        let datasource: Driver<[T]>
+        let datasource: BehaviorRelay<[T]>
         let errorMsg: Driver<String>
         let isFetching: Driver<Bool>
     }
