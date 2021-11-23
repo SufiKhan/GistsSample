@@ -69,7 +69,6 @@ class GistListViewModelTests: XCTestCase {
         
         mockDataManager.showEmptyList = true
         sut?.input.viewState.onNext(.initialFetch)
-        let disposeBag = DisposeBag()
         
         let errorMsg = scheduler.createObserver(String.self)
         sut?.output.errorMsg
@@ -88,7 +87,6 @@ class GistListViewModelTests: XCTestCase {
         
         mockDataManager.fetchFailure = true
         sut?.input.viewState.onNext(.initialFetch)
-        let disposeBag = DisposeBag()
         
         let errorMsg = scheduler.createObserver(String.self)
         sut?.output.errorMsg
