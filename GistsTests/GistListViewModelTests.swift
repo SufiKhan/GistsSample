@@ -34,6 +34,9 @@ class GistListViewModelTests: XCTestCase {
         sut?.input.viewState.onNext(.initialFetch)
         // Test datasource is not Empty
         XCTAssertFalse(sut?.output.datasource.value.isEmpty ?? true)
+        //Check both api are called 
+        XCTAssertTrue(mockDataManager.isGetGistsApiCalled)
+        XCTAssertTrue(mockDataManager.isGetUsersGistsApiCalled)
         // Check if User shares row is appended at correct position
         // Since we only added one row for each gist and user shares we know the index will first and last
         // In case of multiple data we can enumerate the list

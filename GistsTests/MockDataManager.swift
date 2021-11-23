@@ -14,9 +14,12 @@ final class MockDataManager: ViewModelDataManager {
     
     var showEmptyList = false
     var fetchFailure = false
+    var isGetGistsApiCalled = false
+    var isGetUsersGistsApiCalled = false
     var getUserSharesResult: Result<[UserGistShares]>?
     
     func getGistsFromServer(completionHandler: @escaping (Result<[Gist]>) -> Void) {
+        isGetGistsApiCalled = true
         if !fetchFailure {
             if !showEmptyList {
                 completionHandler(.success(getMockedJsonForGists()))
@@ -30,6 +33,7 @@ final class MockDataManager: ViewModelDataManager {
     }
     
     func queryUserForDetail(gists: [Gist], completionHandler: @escaping (Result<Set<UserShares>>) -> Void) {
+            isGetUsersGistsApiCalled = true
             var userDetailList = Set<UserShares>()
             gists.forEach({ gist in
                 let userShares = getMockedJsonForUserShares()
